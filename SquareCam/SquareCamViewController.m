@@ -584,7 +584,7 @@ bail:
 	// hide all the face layers
 	for ( CALayer *layer in sublayers ) {
 		if ( [[layer name] isEqualToString:@"FaceLayer"] )
-			[layer setHidden:YES];
+			[layer setHidden:NO];
 	}	
 	
 	if ( featuresCount == 0 || !detectFaces ) {

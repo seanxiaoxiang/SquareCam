@@ -584,6 +584,7 @@ bail:
 	// hide all the face layers
 	for ( CALayer *layer in sublayers ) {
 		if ( [[layer name] isEqualToString:@"FaceLayer"] )
+            NSLog(@"%@",layer);
 			[layer setHidden:NO];
 	}	
 	
@@ -632,7 +633,7 @@ bail:
 			CALayer *currentLayer = [sublayers objectAtIndex:currentSublayer++];
 			if ( [[currentLayer name] isEqualToString:@"FaceLayer"] ) {
 				featureLayer = currentLayer;
-				[currentLayer setHidden:NO];
+				[currentLayer setHidden:YES];
 			}
 		}
 		
@@ -673,8 +674,8 @@ bail:
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
 {
-    static int count=0;
-    NSLog(@"count:%d",count++);
+//    static int count=0;
+//    NSLog(@"count:%d",count++);
     
 	// got an image
 	CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
